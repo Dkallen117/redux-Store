@@ -19,42 +19,32 @@ function CategoryMenu() {
     if (categoryData) {
       dispatch({
         type: UPDATE_CATEGORIES,
-        categories: categoryData.categories,
-      });
-      categoryData.categories.forEach((category) => {
-        idbPromise('categories', 'put', category);
-      });
-    } else if (!loading) {
-      idbPromise('categories', 'get').then((categories) => {
-        dispatch({
-          type: UPDATE_CATEGORIES,
-          categories: categories,
-        });
+        categories: categoryData.categories
       });
     }
-  }, [categoryData, loading, dispatch]);
+  }, [categoryData, dispatch]);
 
-  const handleClick = (id) => {
-    dispatch({
-      type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id,
-    });
+   const handleClick = id => {
+  dispatch({
+    type: UPDATE_CURRENT_CATEGORY,
+    currentCategory: id
+  });
   };
 
   return (
     <div>
-      <h2>Choose a Category:</h2>
-      {categories.map((item) => (
-        <button
-          key={item._id}
-          onClick={() => {
-            handleClick(item._id);
-          }}
-        >
-          {item.name}
-        </button>
-      ))}
-    </div>
+    <h2>Choose a Category:</h2>
+    {categories.map(item => (
+      <button
+        key={item._id}
+        onClick={() => {
+          handleClick(item._id);
+        }}
+      >
+        {item.name}
+      </button>
+    ))}
+  </div>
   );
 }
 
