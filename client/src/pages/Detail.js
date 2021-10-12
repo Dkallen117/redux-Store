@@ -16,7 +16,7 @@ import spinner from '../assets/spinner.gif';
 import { useSelector, useDispatch } from "react-redux";
 
 function Detail() {
-  const state = useSelector(state => state);
+  const state = useSelector((state) => state);
   const dispatch = useDispatch(); 
   const { id } = useParams();
 
