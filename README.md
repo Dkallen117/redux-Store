@@ -52,7 +52,7 @@ Refactored from using React's Context API, this MERN stack e-commerce app implem
 
 [Live Application](https://da-redux-store.herokuapp.com/)
 
-![]()
+![](example/example.png)
 
 ## License ![GitHub](https://img.shields.io/badge/License%3A-MIT-green.svg)
 
